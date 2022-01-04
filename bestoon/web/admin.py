@@ -10,6 +10,10 @@ class ExpenseAdmin(admin.ModelAdmin):
     # search_fields = ('title', 'description', 'address', 'state', 'zipcode', 'price')
     list_per_page = 25
 
+class IncomeAdmin(admin.ModelAdmin):
+    list_display = ('user', 'text', 'amount', 'date')    
+    list_per_page = 25
+
 admin.site.register(Expense, ExpenseAdmin)
-admin.site.register(Income)
+admin.site.register(Income, IncomeAdmin)
 admin.site.register(Token)
