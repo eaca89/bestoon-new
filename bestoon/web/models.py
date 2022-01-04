@@ -6,9 +6,12 @@ class Token(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     token = models.CharField(max_length=48)
 
+    def __str__(self):
+        return "{}-token".format(self.user)
+
 class Expense(models.Model):
     text = models.CharField(max_length=255)
-    date = models.DateField()
+    date = models.DateTimeField()
     amount = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -17,7 +20,7 @@ class Expense(models.Model):
 
 class Income(models.Model):
     text = models.CharField(max_length=255)
-    date = models.DateField()
+    date = models.DateTimeField()
     amount = models.BigIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
